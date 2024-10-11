@@ -1,0 +1,209 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Kalyani Toys</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+        }
+
+        /* Navigation Styles */
+        nav {
+            background-color: #333;
+            padding: 10px;
+            text-align: center;
+        }
+
+        nav ul {
+            list-style: none;
+            padding: 0;
+            margin: 0;
+        }
+
+        nav ul li {
+            display: inline;
+            margin: 0 15px;
+        }
+
+        nav ul li a {
+            color: white;
+            text-decoration: none;
+            font-size: 18px;
+        }
+
+        nav ul li a:hover {
+            color: #f39c12;
+        }
+
+        /* Product Section */
+        #products {
+            padding: 20px;
+        }
+
+        .product {
+            border: 1px solid #ddd;
+            padding: 10px;
+            margin: 10px;
+            display: inline-block;
+            width: 200px;
+            text-align: center;
+        }
+
+        .product img {
+            width: 150px;
+            height: 150px;
+            object-fit: cover;
+        }
+
+        .product button {
+            margin-top: 10px;
+        }
+
+        /* Filter section */
+        #filter {
+            margin: 20px 0;
+            text-align: center;
+        }
+
+        #filter select {
+            padding: 10px;
+            font-size: 16px;
+        }
+
+        /* Horizontal Rule */
+        hr {
+            margin: 20px auto;
+            width: 80%;
+            border: 1px solid black;
+        }
+
+        footer {
+            text-align: center;
+            padding: 20px;
+            background-color: #333;
+            color: white;
+            position: fixed;
+            bottom: 0;
+            width: 100%;
+        }
+    </style>
+</head>
+<body bgcolor="lightblue">
+    <header>
+        <h1 style="text-align: center;">Kalyani Toys</h1>
+        <p style="text-align: center;">Address: Near Gunj Convent, Sindi Rly</p>
+        <p style="text-align: center;">Phone no.: 7798582669</p>
+        <p style="text-align: center;">Email: kalyanitoys@gmail.com</p>
+
+        <hr>
+
+        <nav>
+            <ul>
+                <li><a href="#products">Products</a></li>
+                <li><a href="#about">About Us</a></li>
+                <li><a href="#contact">Contact</a></li>
+                <li><a href="#cart">Shopping Cart</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <main>
+        <section id="products">
+            <h2>Our Products</h2>
+
+            <!-- Filter Section -->
+            <div id="filter">
+                <label for="toy-type">Select Toy Category: </label>
+                <select id="toy-type" onchange="filterToys()">
+                    <option value="all">All</option>
+                    <option value="baby">Baby Toys</option>
+                    <option value="educational">Educational Toys</option>
+                    <option value="outdoor">Outdoor Toys</option>
+                </select>
+            </div>
+
+            <div class="product" data-type="baby">
+                <h3>Baby Rattle</h3>
+                <img src="images\1.jpeg" alt="Baby Rattle">
+                <p>Price: Rs.50</p>
+                <button>Add to Cart</button>
+            </div>
+
+            <div class="product" data-type="baby">
+                <h3>Stuffed Bear</h3>
+                <img src="images\2.jpg" alt="Stuffed Bear">
+                <p>Price: Rs.200</p>
+                <button>Add to Cart</button>
+            </div>
+
+            <div class="product" data-type="educational">
+                <h3>Building Blocks</h3>
+                <img src="images\3.jpg" alt="Building Blocks">
+                <p>Price: Rs.300</p>
+                <button>Add to Cart</button>
+            </div>
+
+            <div class="product" data-type="educational">
+                <h3>Puzzle Set</h3>
+                <img src="images\4.jpg" alt="Puzzle Set">
+                <p>Price: Rs.150</p>
+                <button>Add to Cart</button>
+            </div>
+
+            <div class="product" data-type="outdoor">
+                <h3>Soccer Ball</h3>
+                <img src="images\5.jpeg" alt="Soccer Ball">
+                <p>Price: Rs.250</p>
+                <button>Add to Cart</button>
+            </div>
+
+            <div class="product" data-type="outdoor">
+                <h3>Remote Control Car</h3>
+                <img src="images\6.jpg" alt="Remote Control Car">
+                <p>Price: Rs.500</p>
+                <button>Add to Cart</button>
+            </div>
+        </section>
+
+        <section id="about">
+            <h2>About Us</h2>
+            <p>Welcome to Kalyani Toys! We offer a wide range of toys for kids of all ages, from babies to teens. We pride ourselves on providing the best quality and customer service.</p>
+        </section>
+
+        <section id="contact">
+            <h2>Contact Us</h2>
+            <p>Email: kalyanitoys@gmail.com</p>
+            <p>Phone: 7798582669</p>
+            <p>Follow us on Instagram: <a href="https://www.instagram.com/_kalyani.rode?igsh=MTFka3Y3dDZjOWRwYQ==" target="_blank">_kalyani.rode</a></p>
+        </section>
+
+        <section id="cart">
+            <h2>Your Shopping Cart</h2>
+            <p>No items in cart.</p>
+        </section>
+    </main>
+
+    <footer>
+        <p>&copy; 2024 Kalyani Toys. All rights reserved.</p>
+    </footer>
+
+    <script>
+        function filterToys() {
+            var selectedType = document.getElementById("toy-type").value;
+            var products = document.querySelectorAll(".product");
+
+            products.forEach(function(product) {
+                var productType = product.getAttribute("data-type");
+
+                if (selectedType === "all" || productType === selectedType) {
+                    product.style.display = "inline-block";
+                } else {
+                    product.style.display = "none";
+                }
+            });
+        }
+    </script>
+</body>
+</html>
